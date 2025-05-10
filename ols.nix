@@ -6,8 +6,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "DanielGavin";
     repo = "ols";
-    rev = "a3b090c7ef9604b0d6630caedb9c204a708828ac";
-    hash = "sha256-pmxdfS8GyJneuf+ADkGyj7DZVqiyQgyNILjztxMFC0c=";
+    rev = "9172bd42c8b0977aa62aa899a8ed09e5b822d021";
+    hash = "sha256-T0bEwAYERCeTVjEg1y2B6633wuoS/S/bYxvwWwxfwZc=";
   };
 
   buildInputs = [ odin ];
