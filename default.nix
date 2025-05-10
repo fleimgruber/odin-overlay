@@ -13,6 +13,10 @@ let
     };
 
   releases-llvm18 = let llvmPackages = prev.llvmPackages_18; in {
+    dev-2024-11 = {
+      hash = "sha256-8ivXMF3kPhBDJxGwhathGXh+We/ROcxiBFOBvsJRS3I=";
+      inherit llvmPackages;
+    };
     dev-2024-10 = {
       hash = "sha256-ky3jiVk2KfOW4JjXqiCTdnbEu7bnmTVupw2r5fwyB00=";
       inherit llvmPackages;
