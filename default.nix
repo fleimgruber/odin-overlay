@@ -12,6 +12,32 @@ let
       };
     };
 
+  releases-llvm20 = let llvmPackages = prev.llvmPackages_20; in {
+    dev-2025-04 = {
+      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
+      inherit llvmPackages;
+    };
+  };
+
+  releases-llvm19 = let llvmPackages = prev.llvmPackages_19; in {
+    dev-2025-03 = {
+      hash = "sha256-QmbKbhZglucVpsdlyxJsH2bslhqmd0nuMPC+E0dTpiY=";
+      inherit llvmPackages;
+    };
+    dev-2025-02 = {
+      hash = "sha256-4KmkqDyI/DIEXa9baFq1xvVhhhjdyjm79N5np7XMxIs=";
+      inherit llvmPackages;
+    };
+    dev-2025-01 = {
+      hash = "sha256-GXea4+OIFyAhTqmDh2q+ewTUqI92ikOsa2s83UH2r58=";
+      inherit llvmPackages;
+    };
+    dev-2024-12 = {
+      hash = "sha256-BkPdVzgbEc3S4eSi5TbFKPzkRGkaJTILN/g9o8hfdEw=";
+      inherit llvmPackages;
+    };
+  };
+
   releases-llvm18 = let llvmPackages = prev.llvmPackages_18; in {
     dev-2024-11 = {
       hash = "sha256-8ivXMF3kPhBDJxGwhathGXh+We/ROcxiBFOBvsJRS3I=";
@@ -89,16 +115,30 @@ let
     lib.nameValuePair "odin-${version}"
     (odin-release { inherit version attrs; })) releases-llvm18;
 
+  release-pkgs-llvm19 = lib.mapAttrs' (version: attrs:
+    lib.nameValuePair "odin-${version}"
+    (odin-release { inherit version attrs; })) releases-llvm19;
+
+  release-pkgs-llvm20 = lib.mapAttrs' (version: attrs:
+    lib.nameValuePair "odin-${version}"
+    (odin-release { inherit version attrs; })) releases-llvm20;
+
   odin-latest = prev.callPackage ./odin.nix {
     version = "latest";
     src = prev.fetchFromGitHub {
       owner = "odin-lang";
       repo = "Odin";
-      rev = "1f187adff455a8de499b73e1ccf9210bd8f830c9";
-      hash = "sha256-YwDaMvqxS3G4rTrKDSmWVTKBk15JjNtwuK10hDBtP7g=";
+      rev = "d9f990d42e2a1bccf3e7be8ba02efa6504e9af9b";
+      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
     };
     llvmPackages = prev.llvmPackages_18;
   };
 
   ols = prev.callPackage ./ols.nix { odin = odin-latest; };
-in { odin-pkgs = release-pkgs-llvm17 // release-pkgs-sroa-llvm17 // release-pkgs-llvm18 // { inherit ols odin-latest; }; }
+in {
+  odin-pkgs = release-pkgs-llvm17 //
+              release-pkgs-sroa-llvm17 //
+              release-pkgs-llvm18 //
+              release-pkgs-llvm19 //
+              release-pkgs-llvm20 //
+              { inherit ols odin-latest; }; }
