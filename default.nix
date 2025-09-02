@@ -140,10 +140,10 @@ let
     src = prev.fetchFromGitHub {
       owner = "odin-lang";
       repo = "Odin";
-      rev = "d9f990d42e2a1bccf3e7be8ba02efa6504e9af9b";
-      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
+      rev = "master";
+      hash = "sha256-fhMGKVJA2idWXrPY+/gLloNDfGJuXRl/sETqeFEoOgo=";
     };
-    llvmPackages = prev.llvmPackages_18;
+    llvmPackages = prev.llvmPackages_20;
   };
 
   ols = prev.callPackage ./ols.nix { odin = odin-latest; };
