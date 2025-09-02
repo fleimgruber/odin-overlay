@@ -14,19 +14,15 @@ let
 
   releases-llvm20 = let llvmPackages = prev.llvmPackages_20; in {
     dev-2025-08 = {
-      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
+      hash = "sha256-08a5MFnHiG/HsetF7V913Hozev2rm1PaXdA/QJcDXTk=";
       inherit llvmPackages;
     };
     dev-2025-07 = {
-      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
+      hash = "sha256-4jhxvQHirNm4B4Wf5Ak0lhAbwaRw6ajWA0JhIn1NYwM=";
       inherit llvmPackages;
     };
     dev-2025-06 = {
-      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
-      inherit llvmPackages;
-    };
-    dev-2025-05 = {
-      hash = "sha256-dVC7MgaNdgKy3X9OE5ZcNCPnuDwqXszX9iAoUglfz2k=";
+      hash = "sha256-Dhy62+ccIjXUL/lK8IQ+vvGEsTrd153tPp4WIdl3rh4=";
       inherit llvmPackages;
     };
     dev-2025-04 = {
