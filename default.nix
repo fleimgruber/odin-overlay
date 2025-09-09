@@ -13,6 +13,10 @@ let
     };
 
   releases-llvm20 = let llvmPackages = prev.llvmPackages_20; in {
+    dev-2025-09 = {
+      hash = "sha256-PxegNMEzxytZtmhmzDgb1Umzx/9aUIlc9SDojRlZfsE=";
+      inherit llvmPackages;
+    };
     dev-2025-08 = {
       hash = "sha256-08a5MFnHiG/HsetF7V913Hozev2rm1PaXdA/QJcDXTk=";
       inherit llvmPackages;
@@ -141,7 +145,7 @@ let
       owner = "odin-lang";
       repo = "Odin";
       rev = "master";
-      hash = "sha256-fhMGKVJA2idWXrPY+/gLloNDfGJuXRl/sETqeFEoOgo=";
+      hash = "sha256-XAR8jhW/Nk0cXJo3ErSdEtu0nJpC0xYZvyn6h6n5+MA=";
     };
     llvmPackages = prev.llvmPackages_20;
   };
